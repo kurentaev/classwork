@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Article - {{ artilcle.title }}
+{% endblock %}
+
+
+{% block content %}
+    <p>Title {{ article.title }}</p>
+    <p>Author {{ article.author }}</p>
+    <p>Text {{ article.text }}</p>
+    <p>Text {{ article.get_status_display }}</p>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Article - {{ artilcle.title }}
+{% endblock %}
+
+{% block menu %}
+<li>
+    <a href="{% url 'article_add' %}">Article add</a>
+</li>
+{% endblock %}
+
+{% block content %}
+    <h1>Вы точно хотите удалить статью?</h1>
+    <p>Title {{ article.title }}</p>
+    <p>Author {{ article.author }}</p>
+    <form action="{% url 'confirm_delete' article.pk %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Да">
+        <a href="{% url 'index' %}">Нет</a>
+    </form>
+{% endblock %}
